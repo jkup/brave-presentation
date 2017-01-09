@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jkup/brave-presentation/issues"
   },
-  "homepage": "https://github.com/jkup/brave-presentation#readme"
+  "homepage": "https://github.com/jkup/brave-presentation#readme",
+  "dependencies": {
+    "spectacle": "^1.2.5"
+  }
 }
