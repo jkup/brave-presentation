@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/jkup/brave-presentation#readme",
   "dependencies": {
-    "spectacle": "^1.2.5"
+    "spectacle": "^1.2.5",
+    "spectacle-code-slide": "^0.3.1"
   }
 }
