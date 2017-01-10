@@ -31,13 +31,16 @@ import createTheme from 'spectacle/lib/themes/default'
 // Import custom component
 import Interactive from '../assets/interactive'
 
+// Import code slide
+import CodeSlide from 'spectacle-code-slide'
+
 // Require CSS
 require('normalize.css')
 require('spectacle/lib/themes/default/index.css')
 
 const images = {
   city: require('../assets/city.jpg'),
-  kat: require('../assets/kat.png'),
+  jon: require('../assets/jon.png'),
   logo: require('../assets/formidable-logo.svg'),
   markdown: require('../assets/markdown.png')
 }
@@ -45,7 +48,7 @@ const images = {
 preloader(images)
 
 const theme = createTheme({
-  primary: '#ff4081'
+  primary: '#ff5000'
 })
 
 export default class Presentation extends React.Component {
@@ -55,32 +58,31 @@ export default class Presentation extends React.Component {
         <Deck transition={['zoom', 'slide']} transitionDuration={500}>
           <Slide transition={['zoom']} bgColor='primary'>
             <Heading size={1} fit caps lineHeight={1} textColor='black'>
-              Spectacle
+              Brave
             </Heading>
             <Heading size={1} fit caps>
-              A ReactJS Presentation Library
+              A faster, safer browser.
             </Heading>
-            <Heading size={1} fit caps textColor='black'>
-              Where You Can Write Your Decks In JSX
-            </Heading>
-            <Link href='https://github.com/FormidableLabs/spectacle'>
-              <Text bold caps textColor='tertiary'>View on Github</Text>
-            </Link>
-            <Text textSize='1.5em' margin='20px 0px 0px' bold>Hit Your Right Arrow To Begin!</Text>
           </Slide>
           <Slide transition={['slide']} bgColor='black' notes='You can even put notes on your slide. How awesome is that?'>
-            <Image src={images.kat.replace('/', '')} margin='0px auto 40px' height='293px' />
+            <Image src={images.jon.replace('/', '')} margin='0px auto 40px' height='293px' />
             <Heading size={2} caps fit textColor='primary' textFont='primary'>
-              Wait what?
+              @jkup
             </Heading>
           </Slide>
-          <Slide transition={['zoom', 'fade']} bgColor='primary' notes='<ul><li>talk about that</li><li>and that</li></ul>'>
-            <CodePane
-              lang='jsx'
-              source={require('raw!../assets/deck.example')}
-              margin='20px auto'
-            />
-          </Slide>
+          <CodeSlide
+            transition={['zoom', 'fade']}
+            lang='jsx'
+            code={require('raw!../assets/deck.example')}
+            ranges={[
+              { loc: [0, 270], title: 'Walking through some code' },
+              { loc: [0, 1], title: 'The Beginning' },
+              { loc: [1, 2] },
+              { loc: [1, 2], note: 'Heres a note!' },
+              { loc: [2, 3] },
+              { loc: [8, 10] }
+            ]}
+          />
           <Slide transition={['slide']} bgImage={images.city.replace('/', '')} bgDarken={0.75}>
             <Appear fid='1'>
               <Heading size={1} caps fit textColor='primary'>
